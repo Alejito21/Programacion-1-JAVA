@@ -24,7 +24,7 @@ public class Venta {
         total = 0.0;
         DetalleVenta encontrado = null;
         DetalleVenta detalleVenta = null;
-        encontrado = buscarVenta(producto);
+        encontrado = buscarDetalleVenta(producto);
         if (encontrado != null) {
             mensaje = " El producto ya esta registrado";
         } else {
@@ -36,7 +36,7 @@ public class Venta {
     }
 
 
-    public DetalleVenta buscarVenta(Producto producto) {
+    public DetalleVenta buscarDetalleVenta(Producto producto) {
         DetalleVenta encontrado = null;
         for (DetalleVenta aux : listaDetallesVentas) {
             if(aux.getProducto().equals(producto)) {
@@ -48,7 +48,7 @@ public class Venta {
 
     public String actualizarVenta(int newCantidad, double newSubtotal, Producto producto) {
         String mensaje = "";
-        DetalleVenta encontrado = buscarVenta(producto);
+        DetalleVenta encontrado = buscarDetalleVenta(producto);
         if (encontrado != null) {
             encontrado.setCantidad(newCantidad);
             encontrado.setSubtotal(newSubtotal);
@@ -61,7 +61,7 @@ public class Venta {
 
     public String eliminarVenta(Producto producto) {
         String mensaje = "";
-        DetalleVenta encontrado = buscarVenta(producto);
+        DetalleVenta encontrado = buscarDetalleVenta(producto);
         if (encontrado != null) {
             listaDetallesVentas.remove(encontrado);
             mensaje = " El detalle venta se ha eliminado ";

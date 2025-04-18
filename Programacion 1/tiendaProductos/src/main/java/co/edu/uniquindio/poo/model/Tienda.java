@@ -45,7 +45,7 @@ public class Tienda {
         return encontrado;
     }
 
-    public String actualizarVenta(String codigo, String newNombre, double newPrecio, String newCategoria, int newStockDisponible) {
+    public String actualizarProducto(String codigo, String newNombre, double newPrecio, String newCategoria, int newStockDisponible) {
         String mensaje = "";
         Producto encontrado = buscarProducto(codigo);
         if (encontrado != null) {
@@ -221,8 +221,6 @@ public class Tienda {
         }
         return ventasCategoria;
     }
-
-
 
 
     public String getNombre() {

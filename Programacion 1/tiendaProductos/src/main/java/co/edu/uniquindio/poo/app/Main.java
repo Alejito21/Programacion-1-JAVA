@@ -112,7 +112,7 @@ public class Main {
                 double nuevoPrecio = Double.parseDouble(JOptionPane.showInputDialog("Nuevo precio:"));
                 String nuevaCategoria = JOptionPane.showInputDialog("Nueva categoría:");
                 int nuevoStock = Integer.parseInt(JOptionPane.showInputDialog("Nuevo stock:"));
-                JOptionPane.showMessageDialog(null, tienda.actualizarVenta(codigoActualizar, nuevoNombre, nuevoPrecio, nuevaCategoria, nuevoStock));
+                JOptionPane.showMessageDialog(null, tienda.actualizarProducto(codigoActualizar, nuevoNombre, nuevoPrecio, nuevaCategoria, nuevoStock));
                 break;
             case 3:
                 JOptionPane.showMessageDialog(null, tienda.eliminarProducto(JOptionPane.showInputDialog("Ingrese el código del producto:")));
