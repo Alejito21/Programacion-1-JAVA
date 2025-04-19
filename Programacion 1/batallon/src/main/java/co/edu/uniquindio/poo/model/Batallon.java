@@ -1,7 +1,6 @@
 package co.edu.uniquindio.poo.model;
 
 import java.util.ArrayList;
-import java.util.Locale;
 import java.util.Optional;
 
 public class Batallon {
@@ -168,6 +167,14 @@ public class Batallon {
             }
         return encontrado;
     }
+
+    public void registrarSoldado2(Soldado soldado) {
+        Optional<Soldado> encontrado = buscarSoldado2(soldado);
+        if (encontrado.isEmpty()) {
+            throw new RuntimeException("El soldado es vacio");
+        }
+    }
+
     /*
     public  ArrayList<Soldado> obtenerSoldadosR(){
         ArrayList<Soldado> soldadosR = new ArrayList<>();
@@ -194,6 +201,41 @@ public class Batallon {
         }
         return soldadosR;
     }
+
+    public ArrayList<Vehiculo> obtenerVehiculosDisponibles() {
+        ArrayList<Vehiculo> vehiculosDisponibles = new ArrayList<>();
+        for (Vehiculo aux : listaVehiculos){
+            EstadoOperativo estado = aux.getEstadoOperativo();
+            if(estado == EstadoOperativo.DISPONIBLE){
+                vehiculosDisponibles.add(aux);
+            }
+        }
+        return vehiculosDisponibles;
+    }
+
+    public ArrayList<Apoyo> obtenerApoyoTipoMedico(){
+        ArrayList<Apoyo> apoyoTipoMedico = new ArrayList<>();
+        ArrayList<Apoyo> listaApoyo = obtenerApoyo();
+        for (Apoyo aux : listaApoyo){
+            if(aux.getFuncion() == Funcion.MEDICO){
+                apoyoTipoMedico.add(aux);
+            }
+        }
+
+        return apoyoTipoMedico;
+    }
+
+
+    public ArrayList<Apoyo> obtenerApoyo(){
+        ArrayList<Apoyo> listaApoyo = new ArrayList<>();
+        for (Vehiculo aux : listaVehiculos){
+            if(aux instanceof Apoyo){
+                listaApoyo.add((Apoyo) aux);
+            }
+        }
+        return listaApoyo;
+    }
+
 
 
 

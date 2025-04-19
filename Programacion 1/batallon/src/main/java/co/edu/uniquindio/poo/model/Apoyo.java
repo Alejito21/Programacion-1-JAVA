@@ -2,8 +2,8 @@ package co.edu.uniquindio.poo.model;
 
 public class Apoyo extends Vehiculo {
     private Funcion funcion;
-    public Apoyo(String id, String modelo, String fechaFabricacion, int kilometraje, EstadoOperativo estadoOperativo, int numerosMisiones, Funcion funcion) {
-        super(id, modelo, fechaFabricacion, kilometraje, estadoOperativo, numerosMisiones);
+    public Apoyo(String id, String modelo, String fechaFabricacion,EstadoOperativo estadoOperativo, int numerosMisiones, Funcion funcion) {
+        super(id, modelo, fechaFabricacion,estadoOperativo, numerosMisiones);
         this.funcion = funcion;
     }
 

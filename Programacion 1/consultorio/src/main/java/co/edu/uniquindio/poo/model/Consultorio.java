@@ -20,6 +20,7 @@ public class Consultorio {
 
 
     public Consultorio(String nombre) {
+
         this.nombre = nombre;
     }
 
@@ -59,17 +60,6 @@ public class Consultorio {
        return mensaje;
     }
 
-
-    public ArrayList<Paciente> obtenerPacietnes5Tratamientos(){
-        ArrayList<Paciente> pacientes5Tratamientos = new ArrayList<>();
-        for (Paciente aux : listaPacientes) {
-            if(aux.cantidadTratamientos() > 5){
-                pacientes5Tratamientos.add(aux);
-            }
-        }
-        return pacientes5Tratamientos;
-    }
-
     public String registrarPaciente(Paciente paciente) {
         String mensaje = "";
         Optional <Paciente> encontrado = buscarpaceinte(paciente);
@@ -98,6 +88,17 @@ public class Consultorio {
         }
         return mensaje;
     }
+
+    public ArrayList<Paciente> obtenerPacietnes5Tratamientos(){
+        ArrayList<Paciente> pacientes5Tratamientos = new ArrayList<>();
+        for (Paciente aux : listaPacientes) {
+            if(aux.cantidadTratamientos() > 5){
+                pacientes5Tratamientos.add(aux);
+            }
+        }
+        return pacientes5Tratamientos;
+    }
+
 
 
 

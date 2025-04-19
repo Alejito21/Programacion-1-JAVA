@@ -5,8 +5,7 @@ import java.time.LocalDate;
 public record Paciente(String identificacion, int numeroHistroiaClinica, String nombre, int edad, String telefono, String dirreccion, LocalDate fecha, int cantidadTratamientos) {
 
     @Override
-    public int numeroHistroiaClinica() {
-        return numeroHistroiaClinica;
+    public int numeroHistroiaClinica() {return numeroHistroiaClinica;
     }
 
     @Override

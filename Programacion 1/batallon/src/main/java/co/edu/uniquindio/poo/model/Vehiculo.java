@@ -7,17 +7,17 @@ public abstract class Vehiculo {
     public String id;
     public String modelo;
     public String fechaFabricacion;
-    public int kilometraje;
+    public float kilometraje;
     public EstadoOperativo estadoOperativo;
     public int numeroMisiones;
     public ArrayList<Mision> listaMisiones;
 
 
-    public Vehiculo(String id, String modelo, String fechaFabricacion, int kilometraje, EstadoOperativo estadoOperativo, int numeroMisiones) {
+    public Vehiculo(String id, String modelo, String fechaFabricacion, EstadoOperativo estadoOperativo, int numeroMisiones) {
         this.id = id;
         this.modelo = modelo;
         this.fechaFabricacion = fechaFabricacion;
-        this.kilometraje = kilometraje;
+        this.kilometraje = 0;
         this.estadoOperativo = estadoOperativo;
         this.numeroMisiones = numeroMisiones;
         this.listaMisiones = new ArrayList<>();
@@ -36,10 +36,23 @@ public abstract class Vehiculo {
         return mensaje;
     }
 
+    public float sumarKilometraje(float cantidad1, float cantidad2) {
+        kilometraje = cantidad1 + cantidad2;
+        return kilometraje;
+    }
+
     public Optional<Mision> buscarMision(Mision mision) {
          return listaMisiones.stream()
                 .filter(m -> m.getCodigoMision().equals(mision.getCodigoMision()))
                 .findFirst();
+    }
+
+    public void agregarKilometraje(int cantidad) {
+        if(cantidad < 0) {
+            throw new RuntimeException("Cantidad negativa no se puede agregar");
+        }else{
+            kilometraje += cantidad;
+        }
     }
 
 
@@ -75,11 +88,11 @@ public abstract class Vehiculo {
         this.fechaFabricacion = newFechaFabricacion;
     }
 
-    public int getKilometraje() {
+    public float getKilometraje() {
         return kilometraje;
     }
 
-    public void setKilometraje(int newKilometraje) {
+    public void setKilometraje(float newKilometraje) {
         this.kilometraje = newKilometraje;
     }
 
